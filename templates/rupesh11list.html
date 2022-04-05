@@ -1,0 +1,86 @@
+{%extends 'base.html'%}
+
+
+
+{%block content%}
+<head>
+	<style>
+		tr,table,th,td{
+			border:2px solid crimson;
+			width: 200px;
+			height: 50px;
+		}
+		table{
+			width: 100%;
+			text-align: center;
+		}
+		button{
+			color: white;
+			background-color: crimson;
+			border-radius: 10px;
+			border: 1px solid white ;
+		}
+	</style>
+
+</head>
+	
+
+<body>
+	<table id="table">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Description</th>
+                <th>Name</th>
+				<th>Created_at</th>
+				<th>Updated_at</th>
+				<th>Update/Delete</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			{%for rupesh11 in rupesh11s%}
+			<tr>
+				<td>{{rupesh11.title}}</td>
+
+				<td>{{rupesh11.description}}</td>
+
+                <td>{{rupesh11.name}}</td>
+
+				<td>{{rupesh11.created_at}}</td>
+
+				<td>{{rupesh11.updated_at}}</td>
+				<td>
+					<a href="{%url 'rupesh11:rupesh11edit' rupesh11.id%}"><button>Update</button></a>
+					
+					 <a href="{%url 'rupesh11:rupesh11delete' rupesh11.id%}"> <button>Delete</button></a>
+					
+				</td>
+				
+			</tr>
+			{%endfor%}
+
+		</tbody>
+
+	</table>
+	<button><a id="downloadLink" onclick="exportF(this)">Download into Excel</a></button>
+
+
+<script>
+function exportF(elem) {
+  var table = document.getElementById("table");
+  var html = table.outerHTML;
+  var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url 
+  elem.setAttribute("href", url);
+  elem.setAttribute("download", "export.xls"); // Choose the file name
+  return false;
+}
+
+</script>
+
+	
+
+
+	
+</body>
+{%endblock%}

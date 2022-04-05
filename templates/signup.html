@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<head>
+    <style>
+        form{
+            margin-left: 400px;
+        }
+    </style>
+</head>
+<form method="post">
+    <h1>Register Yourself</h1>
+    {%csrf_token%}
+    {{ form.as_p }}
+    <button type="submit" name="signup">Signup</button>
+</form>
+
+{%endblock%}

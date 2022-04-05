@@ -1,0 +1,39 @@
+
+<head>
+    <style>
+        .nv{
+            background-color: lightgrey;
+          
+        }
+        .nav-link{
+            color: black;
+        }
+        .logo{
+            width: 100px;
+            height: 40px;
+        }
+        
+    </style>
+    </head>
+    <link rel="icon" type="images/icon" href="cart.jpg">
+    <nav class="navbar navbar-dark nv">
+        <a class="nav-link" href="http://127.0.0.1:8000/"><img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS15wvviANLqHQyWXcEsIsZaTtvJgib0hiYmw&usqp=CAU"></a>
+        
+        <a class="nav-link" style="margin-left: auto;" href="http://127.0.0.1:8000/">Home</a>
+        <!-- <a class="nav-link" href="http://127.0.0.1:8000/rupesh11s">All Feedback</a>
+        <a class="nav-link" href="http://127.0.0.1:8000/rupesh11s/add">Add Your Feedback</a> -->
+
+        <a class="nav-link" href="http://127.0.0.1:8000/account/login">signin</a>
+        <a class="nav-link" href="http://127.0.0.1:8000/account/signup">signup</a>
+        <a class="nav-link" href="http://127.0.0.1:8000/account/logout">logout</a>
+
+        <a class="nav-link" href="http://127.0.0.1:8000/rupesh11s/contact">Contact</a>
+        <a class="nav-link" href="http://127.0.0.1:8000/rupesh11s/about">About</a>
+        <div>
+            {%if user.is_authenticated%}
+            <p class="p">Hi, {{user.username}}!!Welcome <a href="{%url 'logout' %}">Logout</a></p>
+            {%endif%}
+        </div>
+            
+        
+    </nav>
